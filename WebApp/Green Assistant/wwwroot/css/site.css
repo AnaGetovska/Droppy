@@ -1,0 +1,103 @@
+﻿html,
+body {
+    height: 100%;
+}
+
+#main {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: rgb(238, 174, 202);
+    background: radial-gradient(circle at 90%, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    margin: 4rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid #ffffff;
+    background: rgb(255, 255, 255);
+    background: radial-gradient(circle at 0% 0%, rgba(206, 228, 255, 0.9) 0%, rgba(245, 245, 245, 0.9) 25%);
+}
+
+@media only screen and (max-width: 768px) {
+    #content {
+        margin: 1rem;
+        padding: 1rem;
+    }
+}
+
+.gauge {
+    width: 150px;
+    height: 150px;
+    background: none;
+    position: relative;
+}
+
+    .gauge::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 6px solid #eee;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .gauge > span {
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        z-index: 1;
+    }
+
+    .gauge .progress-left {
+        left: 0;
+    }
+
+    .gauge .progress-bar {
+        width: 100%;
+        height: 100%;
+        background: none;
+        border-width: 6px;
+        border-style: solid;
+        position: absolute;
+        top: 0;
+    }
+
+    .gauge .progress-left .progress-bar {
+        left: 100%;
+        border-top-right-radius: 80px;
+        border-bottom-right-radius: 80px;
+        border-left: 0;
+        -webkit-transform-origin: center left;
+        transform-origin: center left;
+    }
+
+    .gauge .progress-right {
+        right: 0;
+    }
+
+        .gauge .progress-right .progress-bar {
+            left: -100%;
+            border-top-left-radius: 80px;
+            border-bottom-left-radius: 80px;
+            border-right: 0;
+            -webkit-transform-origin: center right;
+            transform-origin: center right;
+        }
+
+    .gauge .progress-value {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+.gauge-title {
+    color: var(--bs-primary);
+}
